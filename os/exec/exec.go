@@ -14,4 +14,9 @@ func Command(name string, arg ...string) *exec.Cmd {
 	return cmd
 }
 
+func Exec(name string, arg ...string) (*exec.Cmd, error) {
+	cmd := Command(name, arg...)
+	return cmd, cmd.Run()
+}
+
 // vim:set ts=4 sw=4 noet:
